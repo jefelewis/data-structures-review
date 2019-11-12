@@ -11,18 +11,18 @@ class Stack {
     this.items = [];
   };
 
-  // Push Element
-  push = (element) => {
+  // Add Element
+  addElement = (element) => {
     this.items.push(element);
   };
 
-  // Pop Element
-  pop = () => {
+  // Remove Element
+  removeElement = () => {
     this.items.pop(element);
   };
 
-  // Peek (View Element At Top Of The Stack)
-  peek = () => {
+  // View Last Element At Top Of The Stack)
+  viewLastElement = () => {
     return this.items[this.items.length - 1];
   };
 
