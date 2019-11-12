@@ -45,12 +45,25 @@ class Stack {
 
   // Remove Element
   removeElement() {
-    this.storage.pop();
+    // Check If Stack Is Not Empty
+    if (!this.isEmpty()) {
+      // Remove Last Element
+      this.storage.pop();
+    }
+    else {
+      console.log('Stack is empty');
+    }
   };
 
   // View Last Element At Top Of The Stack
   viewLastElement() {
-    return this.storage[this.storage.length - 1];
+    // Check If Stack Is Not Empty
+    if (!this.isEmpty()) {
+      return this.storage[this.storage.length - 1];
+    }
+    else {
+      console.log('Stack is empty');
+    }
   };
 
   // Is Empty
