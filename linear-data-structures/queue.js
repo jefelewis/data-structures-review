@@ -8,27 +8,27 @@ Notes:
 
 /*
 Tests:
-let testStack = new Queue();
+let testQueue = new Queue();
 
-console.log(`Empty: ${testStack.isEmpty()}`);
+console.log(`Empty: ${testQueue.isEmpty()}`);
 console.log('\n');
 
 console.log('Adding Elements');
-testStack.addElement(2);
-testStack.addElement(4);
-testStack.addElement(6);
-testStack.addElement(8);
-testStack.addElement(10);
-console.log(testStack.viewQueue());
+testQueue.addElement(2);
+testQueue.addElement(4);
+testQueue.addElement(6);
+testQueue.addElement(8);
+testQueue.addElement(10);
+console.log(testQueue.viewQueue());
 console.log('\n');
 
 console.log('Removing Element');
-testStack.removeElement();
-console.log(testStack.viewQueue());
+testQueue.removeElement();
+console.log(testQueue.viewQueue());
 console.log('\n');
 
-console.log(`First Element: ${testStack.viewFirstElement()}`);
-console.log(`Empty: ${testStack.isEmpty()}`);
+console.log(`First Element: ${testQueue.viewFirstElement()}`);
+console.log(`Empty: ${testQueue.isEmpty()}`);
 */
 
 
@@ -45,12 +45,26 @@ class Queue {
 
   // Remove Element (Dequeue)
   removeElement() {
-    this.storage.shift();
+    // Check If Queue Is Not Empty
+    if (!this.isEmpty()) {
+      // Remove First Element
+      this.storage.shift();
+    }
+    else {
+      console.log('Queue is empty');
+    }
   };
 
   // View First Element At The Front Of The Queue
   viewFirstElement() {
-    return this.storage[0];
+    // Check If Queue Is Not Empty
+    if (!this.isEmpty()) {
+      // Return First Element
+      return this.storage[0];
+    }
+    else {
+      console.log('Queue is empty');
+    }
   };
 
   // Is Empty
