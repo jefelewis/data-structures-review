@@ -45,7 +45,7 @@ class Stack {
     this.items.pop();
   };
 
-  // View Last Element At Top Of The Stack)
+  // View Last Element At Top Of The Stack
   viewLastElement() {
     return this.items[this.items.length - 1];
   };
