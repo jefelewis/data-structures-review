@@ -14,12 +14,12 @@ class Stack {
   // Push Element
   push = (element) => {
     this.items.push(element);
-  }
+  };
 
   // Pop Element
   pop = () => {
     this.items.pop(element);
-  }
+  };
 
   // Peek (View Element At Top Of The Stack)
   peek = () => {
