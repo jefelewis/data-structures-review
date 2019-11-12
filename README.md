@@ -3,13 +3,13 @@
 *  [Non-Linear Data Structures](#non-linear-data-structures)
 
 ## Linear Data Structures
-* Hash Table
-* Linked List (Single)
-* Linked List (Double)
+* Hash Table (Pending)
+* Linked List (Single) (Pending)
+* Linked List (Double) (Pending)
 * Queue
 * Stack
 
 ## Non-Linear Data Structures
-* Graph
-* Set
-* Tree
+* Graph (Pending)
+* Set (Pending)
+* Tree (Pending)
