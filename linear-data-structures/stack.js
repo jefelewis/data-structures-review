@@ -10,6 +10,9 @@ Notes:
 Tests:
 let testStack = new Stack();
 
+console.log(`Empty: ${testStack.isEmpty()}`);
+console.log('\n');
+
 console.log('Adding Elements');
 testStack.addElement(2);
 testStack.addElement(4);
@@ -29,31 +32,31 @@ console.log(`Empty: ${testStack.isEmpty()}`);
 */
 
 
-// Queue
+// Stack
 class Stack {
   constructor () {
-    this.items = [];
+    this.storage = [];
   };
 
   // Add Element
   addElement(element) {
-    this.items.push(element);
+    this.storage.push(element);
   };
 
   // Remove Element
   removeElement() {
-    this.items.pop();
+    this.storage.pop();
   };
 
   // View Last Element At Top Of The Stack
   viewLastElement() {
-    return this.items[this.items.length - 1];
+    return this.storage[this.storage.length - 1];
   };
 
   // Is Empty
   isEmpty() {
     // Check If Array Is Empty
-    if (this.items.length === 0) {
+    if (this.storage.length === 0) {
       return true;
     }
     else {
@@ -63,6 +66,6 @@ class Stack {
 
   // View Stack
   viewStack() {
-    return this.items;
+    return this.storage;
   };
 };
