@@ -91,6 +91,26 @@ class LinkedList {
 
   
   // HELPER FUNCTIONS
+  // Index Of
+  indexOf(value) {
+    // Count + Current Node
+    let count = 0;
+    let currentNode = this.head;
+
+    // Iterate Over Linked List
+    while (currentNode !== null) {
+      // Check If Current Node's Value Equals Value
+      if (currentNode.value === value) {
+        return count;
+      }
+      else {
+        // Advance To Next Node + Increase Count
+        currentNode = currentNode.next;
+        count++;
+      }
+    }
+  };
+
   // Is Empty
   isEmpty() {
     if (this.length === 0) {
