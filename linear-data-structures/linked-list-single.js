@@ -26,6 +26,14 @@ console.log(`Empty: ${testLinkedList.isEmpty()}`);
 console.log(`Size: ${testLinkedList.size()}`);
 console.log(`Print: ${testLinkedList.print()}`);
 console.log('\n');
+
+console.log('Removing Node');
+testLinkedList.removeNode(6);
+
+console.log(`Empty: ${testLinkedList.isEmpty()}`);
+console.log(`Size: ${testLinkedList.size()}`);
+console.log(`Print: ${testLinkedList.print()}`);
+console.log('\n');
 */
 
 
