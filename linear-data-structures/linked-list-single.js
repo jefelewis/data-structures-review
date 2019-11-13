@@ -8,6 +8,13 @@ Notes:
 
 /*
 Tests:
+let testLinkedList = new LinkedList();
+
+console.log(`Empty: ${testLinkedList.isEmpty()}`);
+console.log(`Size: ${testLinkedList.size()}`);
+console.log(`Print: ${testLinkedList.print()}`);
+console.log('\n');
+
 
 
 */
@@ -32,9 +39,8 @@ class LinkedList {
   // DATA FUNCTIONS
   // Add Node
   addNode(value) {
-    // Create Node + Current Node
+    // Create Node
     let node = new Node(value);
-    let currentNode = null;
 
     // Check If Linked List Is Empty
     if (this.head === null) {
@@ -42,10 +48,20 @@ class LinkedList {
       this.head = node;
     }
     else {
-      // 
-      currentNode === this.head;
+      // Current Node (Start With Head)
+      let currentNode = this.head;
 
+      // Iterate Over Linked List To Last Node
+      while (currentNode.next) {
+        currentNode = currentNode.next;
+      }
+
+      // Add Node
+      currentNode.next = node;
     }
+
+    // Increase Length
+    this.length++;
   };
 
   // Insert Node At
