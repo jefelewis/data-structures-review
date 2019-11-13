@@ -82,14 +82,53 @@ class LinkedList {
   };
 
   // Insert Node At
-  insertNodeAt(node, index) {
+  insertNodeAt(value, index) {
+    // Current Node + Counter
+    let currentNode = null;
+    let counter = 0;
+
+    // Iterate Over Linked List
+    while (counter <= index) {
+      currentNode = currentNode.next;
+    }
+
+    // Insert Value
+
+
+    // Reattached Succeeding Nodes
 
   };
 
 
-  // Remove Node
+  // Remove Node (WORKING?)
   removeNode(node) {
+    // Current Node + Previous Node
+    let currentNode = this.head;
+    let previousNode = null;
 
+    // Iterate Over Linked List
+    while (currentNode !== null) {
+      // Check If Current Node's Value Equals Value
+      if (currentNode.value === value) {
+        // Check If Node is Head (WORKING?)
+        if (previousNode === null) {
+          // Reassign Head
+          this.head = currentNode.next;
+        }
+        else {
+          // dfd
+          previousNode.next = currentNode.next;
+        }
+
+        //
+        this.length--;
+        return currentNode.value
+      }
+
+      //
+      previousNode = currentNode;
+      currentNode = currentNode.next;
+    }
   };
 
   // Remove Node At
