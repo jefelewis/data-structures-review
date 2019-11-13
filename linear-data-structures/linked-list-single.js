@@ -15,8 +15,17 @@ console.log(`Size: ${testLinkedList.size()}`);
 console.log(`Print: ${testLinkedList.print()}`);
 console.log('\n');
 
+console.log('Adding Nodes');
+testLinkedList.addNode(2);
+testLinkedList.addNode(4);
+testLinkedList.addNode(6);
+testLinkedList.addNode(8);
+testLinkedList.addNode(10);
 
-
+console.log(`Empty: ${testLinkedList.isEmpty()}`);
+console.log(`Size: ${testLinkedList.size()}`);
+console.log(`Print: ${testLinkedList.print()}`);
+console.log('\n');
 */
 
 
