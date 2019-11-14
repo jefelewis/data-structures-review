@@ -47,11 +47,10 @@ class HashTable {
   //   return hash;
   // };
 
-  // Add Element
+  // Add Element (Resolve Collisions By Separate Chaining)
   addElement(key, value) {
     // Hash Key To Generate Index
     let index = this.hash(key);
-    // let index = this.hashTwo(key);
 
     // Check If Bucket Is Empty
     if (this.storage[index] === undefined) {
@@ -59,22 +58,18 @@ class HashTable {
       this.storage[index] = [[key, value]];
     }
     else {
-      // Inserted
-      let inserted = false;
-
-      
+      // Resolve Collisions (Separate Chaining)
+      for (let i = 1; i < this.storage[index].length; i++) {
+        // Check If What?
+        if (this.storage[index][i] === undefined) {
+          // Assign Key/Value To Bucket
+          this.storage[index][i] = [key, value];
+        }
+        else {
+          console.log('Iterating through bucket');
+        }
+      }
     }
-
-
-    // if (!this.storage[index]) {
-    //   this.storage[index] = [];
-    // }
-
-    // Push Key/Value Pair To Bucket (Tuple)
-    this.storage[index].push([key, value]);
-
-    // 
-    // return index;
   };
 
   // Find Element
