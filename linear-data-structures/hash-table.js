@@ -8,8 +8,16 @@ Notes:
 
 /*
 Tests:
+let hashTable = new HashTable();
 
+hashTable.addElement('beau', 'person');
+hashTable.addElement('fido', 'dog');
+hashTable.addElement('rex', 'dinosour');
+hashTable.addElement('tux', 'penguin')
 
+console.log(hashTable.findElement('tux'))
+
+hashTable.print();
 */
 
 
@@ -20,6 +28,7 @@ class HashTable {
     this.bucketsLimit = 10;
   };
 
+  // DATA FUNCTIONS
   // Hash (#1 Hashing Function)
   hash(key) {
     let hash = 0;
@@ -100,9 +109,9 @@ class HashTable {
 
   // Remove Element
 
-
-  // View Hash Table
-  viewHashTable() {
+  // HELPER FUNCTIONS
+  // Print Hash Table
+  print() {
     return this.storage;
   };
 };
