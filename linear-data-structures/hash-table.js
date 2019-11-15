@@ -178,17 +178,17 @@ class HashTable {
     // Check If Bucket Is Empty
     if (this.storage[index] === undefined) {
       console.log('Key not found');
-      return;
     }
-
-    // Iterate Over Bucket
-    for (let i = 0; i < this.storage[index].length; i++) {
-      // Check For Key Match
-      if (this.storage[index][i][0] === key) {
-        // Return Value
-        return this.storage[index][i][1];
-      }
-    } 
+    else {
+      // Iterate Over Bucket
+      for (let i = 0; i < this.storage[index].length; i++) {
+        // Check For Key Match
+        if (this.storage[index][i][0] === key) {
+          // Return Value
+          return this.storage[index][i][1];
+        }
+      } 
+    }
   };
 
   // HELPER FUNCTIONS
