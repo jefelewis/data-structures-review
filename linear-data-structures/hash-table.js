@@ -66,7 +66,7 @@ class HashTable {
     return hash;
   };
 
-  // Add Item (Resolve Collisions By Separate Chaining)
+  // Add Item (Resolve Collisions By Separate Chaining?)
   addItem(key, value) {
     // Hash Key To Generate Index
     let index = this.hash(key);
@@ -77,6 +77,7 @@ class HashTable {
       this.storage[index] = [[key, value]];
     }
     else {
+      // Separate Chaining
       // Inserted
       let inserted = false;
 
@@ -94,6 +95,50 @@ class HashTable {
       if (inserted === false) {
         // Insert Key/Value Pair
         this.storage[index].push([key, value]);
+      }
+    }
+  };
+
+  // Add Item (Resolve Collisions By Linear Probing)
+  addItem(key, value) {
+    // Hash Key To Generate Index
+    let index = this.hash(key);
+
+    // Check If Bucket Is Empty
+    if (this.storage[index] === undefined) {
+      // Assign Key/Value To Bucket
+      this.storage[index] = [[key, value]];
+    }
+    else {
+      // Linear Probing
+      // Bucket Found
+      let bucketFound = false;
+
+      // Iterate Through Hash Table Buckets (From Index To End Of Storage)
+      for (let i = this.hash(key); i < this.storage.length; i++) {
+        // Check If Bucket Is Empty
+        if (this.storage[i] === undefined) {
+          // Assign Key/Value To Bucket
+          this.storage[i] = [[key, value]];
+          bucketFound = true;
+          return;
+        }
+      }
+
+      // Iterate Through Hash Table Buckets (From 0 To Index
+      for (let i = 0; i < this.hash(key); i++) {
+        // Check If Bucket Is Empty
+        if (this.storage[i] === undefined) {
+          // Assign Key/Value To Bucket
+          this.storage[i] = [[key, value]];
+          bucketFound = true;
+          return;
+        }
+      }
+
+      // Check If Inserted
+      if (bucketFound === false) {
+        console.log('Hash Table full');
       }
     }
   };
