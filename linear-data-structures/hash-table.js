@@ -10,12 +10,12 @@ Notes:
 Tests:
 let hashTable = new HashTable();
 
-hashTable.addElement('beau', 'person');
-hashTable.addElement('fido', 'dog');
-hashTable.addElement('rex', 'dinosour');
-hashTable.addElement('tux', 'penguin')
+hashTable.addItem('beau', 'person');
+hashTable.addItem('fido', 'dog');
+hashTable.addItem('rex', 'dinosour');
+hashTable.addItem('tux', 'penguin')
 
-console.log(hashTable.findElement('tux'))
+console.log(hashTable.findItem('tux'))
 
 hashTable.print();
 */
@@ -56,8 +56,8 @@ class HashTable {
   //   return hash;
   // };
 
-  // Add Element (Resolve Collisions By Separate Chaining)
-  addElement(key, value) {
+  // Add Item (Resolve Collisions By Separate Chaining)
+  addItem(key, value) {
     // Hash Key To Generate Index
     let index = this.hash(key);
 
@@ -81,17 +81,17 @@ class HashTable {
     }
   };
 
-  // Find Element
-  findElement(key) {
+  // Find Item
+  findItem(key) {
     // Hash Key To Generate Index
     let index = this.hash(key);
 
-    // Check If There Is Bucket (Tuple)
+    // Check If Bucket Is Empty
     if (!this.storage[index]) {
       return null;
     }
 
-    // Iterate
+    // Iterate Over Bucket
     for (let bucket of this.storage[index]) {
       // Check For Key Match
       if (bucket[0] === key) {
@@ -102,16 +102,37 @@ class HashTable {
 
   };
 
+  // Remove Item
+  removeItem(key) {
+    // Hash Key To Generate Index
+    let index = this.hash(key);
 
+    // Check If Bucket Is Empty
+    if (this.storage[index] === undefined) {
+      console.log(`${key} was not found in the Hash Table`);
+      return;
+    }
 
+    // Check If Bucket Has Key/Value Pairs
+    if (this.storage[index].length >= 1) {
+      // Iterate Over Bucket
+      for (let i = 0; i < this.storage[index].length; i++) {
+        // Check For Key Match
+        if (this.storage[index][i][0] === key) {
+          console.log(`Key found. Removing: ${this.storage[index][i][0]}`)
+          return delete this.storage[index][i];
+        }
+        else {
+          console.log('Key not found');
+        }
+      }
+    }
+  };
 
-  // Add Element
-
-  // Remove Element
 
   // HELPER FUNCTIONS
   // Print Hash Table
   print() {
-    return this.storage;
+    console.log(this.storage);
   };
 };
