@@ -13,7 +13,7 @@ let hashTable = new HashTable();
 console.log('Adding Items');
 hashTable.addItem('beau', 'person');
 hashTable.addItem('fido', 'dog');
-hashTable.addItem('rex', 'dinosour');
+hashTable.addItem('rex', 'dinosaur');
 hashTable.addItem('tux', 'penguin')
 console.log(' ');
 
@@ -118,22 +118,23 @@ class HashTable {
     }
   };
 
-  // Find Item
-  findItem(key) {
+  // Retrieve Value
+  retrieveValue(key) {
     // Hash Key To Generate Index
     let index = this.hash(key);
 
     // Check If Bucket Is Empty
-    if (!this.storage[index]) {
-      return null;
+    if (this.storage[index] === undefined) {
+      console.log('Key not found');
+      return;
     }
 
     // Iterate Over Bucket
-    for (let bucket of this.storage[index]) {
+    for (let i = 0; i < this.storage[index].length; i++) {
       // Check For Key Match
-      if (bucket[0] === key) {
+      if (this.storage[index][0] === key) {
         // Return Value
-        return bucket[1];
+        return this.storage[index][i][1];
       }
     } 
   };
