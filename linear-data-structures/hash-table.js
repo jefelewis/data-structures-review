@@ -73,20 +73,26 @@ class HashTable {
 
     // Check If Bucket Is Empty
     if (this.storage[index] === undefined) {
-      // Assign Key/Value To Bucket (EXTRA [] BRACKETS?)
+      // Assign Key/Value To Bucket
       this.storage[index] = [[key, value]];
     }
     else {
-      // Resolve Collisions (Separate Chaining)
-      for (let i = 1; i < this.storage[index].length; i++) {
-        // Check If What?
-        if (this.storage[index][i] === undefined) {
-          // Assign Key/Value To Bucket
-          this.storage[index][i] = [key, value];
+      // Inserted
+      let inserted = false;
+
+      // Iterate Over Bucket
+      for (let i = 0; i < this.storage[index].length; i++) {
+        // Check If Key Exists
+        if (this.storage[index][i][0] === key) {
+          // Update Value
+          this.storage[index][i][1] = value;
+          inserted = true;
         }
-        else {
-          console.log('Iterating through bucket');
-        }
+      }
+
+      // Check If Not Inserted
+      if (inserted === false) {
+        this.storage[index].push([key, value]);
       }
     }
   };
@@ -132,7 +138,7 @@ class HashTable {
     // Iterate Over Bucket
     for (let i = 0; i < this.storage[index].length; i++) {
       // Check For Key Match
-      if (this.storage[index][0] === key) {
+      if (this.storage[index][i][0] === key) {
         // Return Value
         return this.storage[index][i][1];
       }
