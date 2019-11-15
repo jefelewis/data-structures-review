@@ -10,12 +10,32 @@ Notes:
 Tests:
 let hashTable = new HashTable();
 
+console.log('Adding Items');
 hashTable.addItem('beau', 'person');
 hashTable.addItem('fido', 'dog');
 hashTable.addItem('rex', 'dinosour');
 hashTable.addItem('tux', 'penguin')
+console.log(' ');
 
+console.log('Printing Hash Table');
+hashTable.print();
+console.log(' ');
+
+console.log('Finding Items');
 console.log(hashTable.findItem('tux'))
+console.log(hashTable.findItem('rex'))
+
+console.log(' ');
+
+console.log('Removing Items');
+hashTable.removeItem('Test');
+hashTable.removeItem('fido');
+hashTable.removeItem('beau');
+console.log(' ');
+
+console.log('Printing Hash Table');
+hashTable.print();
+console.log(' ');
 
 hashTable.print();
 */
@@ -46,16 +66,6 @@ class HashTable {
     return hash;
   };
 
-  // // Hash (#2 Hashing Function)
-  // hash(key) {
-  //   // Key Length Divided By Buckets Limit
-  //   let hash = key.toString().length % this.bucketsLimit;
-    
-  //   // Return Hash
-  //   console.log(`Hash: ${hash}`);
-  //   return hash;
-  // };
-
   // Add Item (Resolve Collisions By Separate Chaining)
   addItem(key, value) {
     // Hash Key To Generate Index
@@ -79,27 +89,6 @@ class HashTable {
         }
       }
     }
-  };
-
-  // Find Item
-  findItem(key) {
-    // Hash Key To Generate Index
-    let index = this.hash(key);
-
-    // Check If Bucket Is Empty
-    if (!this.storage[index]) {
-      return null;
-    }
-
-    // Iterate Over Bucket
-    for (let bucket of this.storage[index]) {
-      // Check For Key Match
-      if (bucket[0] === key) {
-        // Return Value
-        return bucket[1];
-      }
-    } 
-
   };
 
   // Remove Item
@@ -129,6 +118,25 @@ class HashTable {
     }
   };
 
+  // Find Item
+  findItem(key) {
+    // Hash Key To Generate Index
+    let index = this.hash(key);
+
+    // Check If Bucket Is Empty
+    if (!this.storage[index]) {
+      return null;
+    }
+
+    // Iterate Over Bucket
+    for (let bucket of this.storage[index]) {
+      // Check For Key Match
+      if (bucket[0] === key) {
+        // Return Value
+        return bucket[1];
+      }
+    } 
+  };
 
   // HELPER FUNCTIONS
   // Print Hash Table
