@@ -107,7 +107,7 @@ class HashTable {
     // Check If Bucket Is Empty
     if (this.storage[index] === undefined) {
       // Assign Key/Value To Bucket
-      this.storage[index] = [[key, value]];
+      this.storage[index] = [key, value];
     }
     else {
       // Linear Probing
@@ -119,18 +119,18 @@ class HashTable {
         // Check If Bucket Is Empty
         if (this.storage[i] === undefined) {
           // Assign Key/Value To Bucket
-          this.storage[i] = [[key, value]];
+          this.storage[i] = [key, value];
           bucketFound = true;
           return;
         }
       }
 
-      // Iterate Through Hash Table Buckets (From 0 To Index
+      // Iterate Through Hash Table Buckets (From 0 To Index)
       for (let i = 0; i < this.hash(key); i++) {
         // Check If Bucket Is Empty
         if (this.storage[i] === undefined) {
           // Assign Key/Value To Bucket
-          this.storage[i] = [[key, value]];
+          this.storage[i] = [key, value];
           bucketFound = true;
           return;
         }
