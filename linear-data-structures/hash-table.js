@@ -92,6 +92,7 @@ class HashTable {
 
       // Check If Not Inserted
       if (inserted === false) {
+        // Insert Key/Value Pair
         this.storage[index].push([key, value]);
       }
     }
