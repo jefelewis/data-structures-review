@@ -3,7 +3,7 @@
 *  [Non-Linear Data Structures](#non-linear-data-structures)
 
 ## Linear Data Structures
-* Hash Table (Pending)
+* Hash Table
 * Linked List (Single) (Pending)
 * Linked List (Double) (Pending)
 * [Queue](https://medium.com/@jeffrey.allen.lewis/javascript-data-structures-what-is-a-queue-example-code-eb789e548fa9)
