@@ -100,48 +100,48 @@ class HashTable {
   };
 
   // Add Item (Resolve Collisions By Linear Probing)
-  addItem(key, value) {
-    // Hash Key To Generate Index
-    let index = this.hash(key);
+  // addItem(key, value) {
+  //   // Hash Key To Generate Index
+  //   let index = this.hash(key);
 
-    // Check If Bucket Is Empty
-    if (this.storage[index] === undefined) {
-      // Assign Key/Value To Bucket
-      this.storage[index] = [key, value];
-    }
-    else {
-      // Linear Probing
-      // Bucket Found
-      let bucketFound = false;
+  //   // Check If Bucket Is Empty
+  //   if (this.storage[index] === undefined) {
+  //     // Assign Key/Value To Bucket
+  //     this.storage[index] = [key, value];
+  //   }
+  //   else {
+  //     // Linear Probing
+  //     // Bucket Found
+  //     let bucketFound = false;
 
-      // Iterate Through Hash Table Buckets (From Index To End Of Storage)
-      for (let i = this.hash(key); i < this.storage.length; i++) {
-        // Check If Bucket Is Empty
-        if (this.storage[i] === undefined) {
-          // Assign Key/Value To Bucket
-          this.storage[i] = [key, value];
-          bucketFound = true;
-          return;
-        }
-      }
+  //     // Iterate Through Hash Table Buckets (From Index To End Of Storage)
+  //     for (let i = this.hash(key); i < this.storage.length; i++) {
+  //       // Check If Bucket Is Empty
+  //       if (this.storage[i] === undefined) {
+  //         // Assign Key/Value To Bucket
+  //         this.storage[i] = [key, value];
+  //         bucketFound = true;
+  //         return;
+  //       }
+  //     }
 
-      // Iterate Through Hash Table Buckets (From 0 To Index)
-      for (let i = 0; i < this.hash(key); i++) {
-        // Check If Bucket Is Empty
-        if (this.storage[i] === undefined) {
-          // Assign Key/Value To Bucket
-          this.storage[i] = [key, value];
-          bucketFound = true;
-          return;
-        }
-      }
+  //     // Iterate Through Hash Table Buckets (From 0 To Index)
+  //     for (let i = 0; i < this.hash(key); i++) {
+  //       // Check If Bucket Is Empty
+  //       if (this.storage[i] === undefined) {
+  //         // Assign Key/Value To Bucket
+  //         this.storage[i] = [key, value];
+  //         bucketFound = true;
+  //         return;
+  //       }
+  //     }
 
-      // Check If Inserted
-      if (bucketFound === false) {
-        console.log('Hash Table full');
-      }
-    }
-  };
+  //     // Check If Inserted
+  //     if (bucketFound === false) {
+  //       console.log('Hash Table full');
+  //     }
+  //   }
+  // };
 
   // Remove Item
   removeItem(key) {
@@ -160,7 +160,7 @@ class HashTable {
       for (let i = 0; i < this.storage[index].length; i++) {
         // Check For Key Match
         if (this.storage[index][i][0] === key) {
-          console.log(`Key found. Removing: ${this.storage[index][i][0]}`)
+          console.log(`The key "${this.storage[index][i][0]}" has been removed`);
           return delete this.storage[index][i];
         }
         else {
