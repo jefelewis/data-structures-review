@@ -31,6 +31,11 @@ testSet.hasItem(2);
 testSet.hasItem(6);
 testSet.print();
 console.log('\n');
+
+console.log('Removing Items');
+testSet.removeItem(2)
+testSet.print();
+console.log('\n');
 */
 
 
@@ -74,13 +79,10 @@ class Set {
   removeItem(item) {
     // Check If Item Exists In Storage
     if (this.hasItem(item)) {
-      // Index
-      let index = indexOf(item);
-
       // Remove Item
-      this.storage = this.storage.splice(index, 1)
-
-
+      this.storage = this.storage.filter((index) => {
+        return index !== item;
+      });
     }
     else {
       console.log(`Set doesn't contain item (${item})`);
