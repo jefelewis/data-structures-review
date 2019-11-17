@@ -5,6 +5,12 @@ Notes:
 - Space Complexity: 
 */
 
+/*
+Examples:
+- Document Object Model (DOM)
+- Family Tree
+- Hierarchical Organization 
+*/
 
 /*
 Tests:
