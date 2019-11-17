@@ -1,6 +1,5 @@
 /*
 Notes:
-- Non Linear
 - Store unique values (No duplicate items)
 - Time Complexity: 
 - Space Complexity: 
